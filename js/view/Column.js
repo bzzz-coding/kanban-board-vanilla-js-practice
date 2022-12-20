@@ -19,6 +19,7 @@ export default class Column {
     // add child topDropZone element to items div; this is the first child appended to items, so it'll be above all items, which each has their own bottomDropZone
     this.elements.items.appendChild(topDropZone);  
 
+    // after appending the topDropZone, append items read from localStorage
     const itemsFromLocalStorage = KanbanAPI.getItems(id); // a list of item objects [{id: 1, content: '...'}, {}]
     itemsFromLocalStorage.forEach(item => {
       let currentItem = new Item(item.id, item.content);
